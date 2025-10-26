@@ -1,6 +1,6 @@
 # Quantum Bit-Flip Error Correction Demo
 
-This mini-project demonstrates a simple quantum error correction scheme using Qiskit. The project simulates the encoding, random bit-flip error, detection, and correction of a single qubit using the 3-qubit bit-flip code.
+This is an evolving project demonstrating quantum error correction techniques using Qiskit. The intention in making this project is to continue adding to it, but for now it contains bit flip checking and Shor Code demonstration. The project simulates the encoding, random bit-flip error, detection, and correction of a single qubit using the 3-qubit bit-flip code, and then also the Shor Code approach.
 
 ## What It Shows
 
@@ -10,9 +10,11 @@ This mini-project demonstrates a simple quantum error correction scheme using Qi
 - Syndrome measurement using ancilla qubits
 - Classical correction based on measurement
 - Decoding and final measurement in the X-basis to verify state recovery
+- Repeating this with the more advanced Shor's Code.
 
 ## Notable aspects of this project
 
+- Help for students hoping to learn more on these topics
 - Practical use of **Qiskit**
 - Simulation of **quantum systems**
 - Understanding of **quantum error correction**
@@ -28,29 +30,137 @@ You can install the requirements using:
 
 ```bash
 pip install -r requirements.txt
+```
+requirements.txt should include whichever of the requirements.txt corresponds to the notebook being used. Now lets begin with the 'mini-course'
 
+# Quantum Logic Gates
 
+## 1.1 Vector and Matrix Formalism
 
+### 1.1.1 Single Qubits
 
-Quantum Logic Gates
-1.1 Vector and Matrix Formalism
-1.1.1 Single Qubits
-∣0⟩=[1
-0],∣1⟩=[0
-1],∣+⟩=12[1
-1],∣−⟩=12[1
-−1],∣+i⟩=12[1
-i],∣−i⟩=12[1
-−i]
-∣0⟩=[
-1
-0
-	​
+$$
+|0\rangle = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \quad
+|1\rangle = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \quad
+|+\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 1 \end{bmatrix}, \quad
+|-\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ -1 \end{bmatrix}, \quad
+|+i\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ i \end{bmatrix}, \quad
+|-i\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}
+$$
 
-],∣1⟩=[
-0
-1
-	​
+These are the eigenstates of the Pauli matrices:
 
-],∣+⟩=
-2
+- \(Z\) basis: \(|0\rangle, |1\rangle\)  
+- \(X\) basis: \(|+\rangle, |-\rangle\)  
+- \(Y\) basis: \(|+i\rangle, |-i\rangle\)
+
+On the Bloch sphere: \(|+\rangle, |+i\rangle, |0\rangle\) are on the positive \(x\), \(y\), \(z\) axes, and \(|-\rangle, |-i\rangle, |1\rangle\) are on the negative axes.
+
+---
+
+### 1.1.2 Two Qubits
+
+$$
+|00\rangle = \begin{bmatrix}1\\0\\0\\0\end{bmatrix}, \quad
+|01\rangle = \begin{bmatrix}0\\1\\0\\0\end{bmatrix}, \quad
+|10\rangle = \begin{bmatrix}0\\0\\1\\0\end{bmatrix}, \quad
+|11\rangle = \begin{bmatrix}0\\0\\0\\1\end{bmatrix}
+$$
+
+---
+
+## 1.2 Basic Gates for One Qubit
+
+The Pauli matrices are the infinitesimal generators of SU(2) (divided by \(i\)):
+
+### 1.2.1 Pauli Gates
+
+#### 1.2.1.1 X-gate (bit flip / NOT)
+
+$$
+X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}, \quad
+X|0\rangle = |1\rangle, \quad X|1\rangle = |0\rangle
+$$
+
+#### 1.2.1.2 Y-gate (phase + bit flip)
+
+$$
+Y = i \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}, \quad
+Y|0\rangle = i|1\rangle, \quad Y|1\rangle = -i|0\rangle
+$$
+
+#### 1.2.1.3 Z-gate (phase flip)
+
+$$
+Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}, \quad
+Z|0\rangle = |0\rangle, \quad Z|1\rangle = -|1\rangle
+$$
+
+---
+
+### 1.2.2 Hadamard Gate
+
+$$
+H = \frac{1}{\sqrt{2}}\begin{bmatrix}1 & 1 \\ 1 & -1\end{bmatrix}, \quad
+H|0\rangle = |+\rangle, \quad H|1\rangle = |-\rangle
+$$
+
+---
+
+## 1.3 CNOT (Controlled-NOT)
+
+$$
+\text{CNOT} = \begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 1 & 0
+\end{bmatrix}
+$$
+
+If the control qubit (first qubit) is 1, the gate flips the target qubit (second qubit), creating entanglement.
+
+---
+
+## 1.4 Toffoli / CCNOT (Controlled-Controlled NOT)
+
+Flips the target qubit only if **both** control qubits are 1.
+
+---
+
+# 2 Quantum Error Correction
+
+## 2.1 Shor Code
+
+- **X-error**: flips \(|0\rangle \leftrightarrow |1\rangle\)  
+- **Z-error**: flips \(|+\rangle \leftrightarrow |-\rangle\)  
+- **Y-error**: combination of X and Z errors  
+
+### 2.1.1 X-error Identification
+
+Encode \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\) as three qubits:
+
+$$
+|\psi\rangle = \alpha|000\rangle + \beta|111\rangle
+$$
+
+Ancilla qubits detect differences, allowing X-errors to be corrected without measurement.
+
+### 2.1.2 Z-error Identification
+
+Encode \(|\psi\rangle = \alpha|+\rangle + \beta|-\rangle\) as three qubits:
+
+$$
+|\psi\rangle = \alpha|+++\rangle + \beta|---\rangle
+$$
+
+Ancilla qubits detect Z-errors similarly.
+
+### 2.1.3 Combined Protection
+
+To protect against X, Y, Z errors:
+
+1. Encode in \(|0\rangle, |1\rangle\) basis (triple qubit).  
+2. Switch each qubit to \(|+\rangle, |-\rangle\) basis and encode again.  
+
+This creates “double protection” against all single-qubit errors.
