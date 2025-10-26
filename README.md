@@ -28,3 +28,29 @@ You can install the requirements using:
 
 ```bash
 pip install -r requirements.txt
+
+
+
+
+Quantum Logic Gates
+1.1 Vector and Matrix Formalism
+1.1.1 Single Qubits
+∣0⟩=[1
+0],∣1⟩=[0
+1],∣+⟩=12[1
+1],∣−⟩=12[1
+−1],∣+i⟩=12[1
+i],∣−i⟩=12[1
+−i]
+∣0⟩=[
+1
+0
+	​
+
+],∣1⟩=[
+0
+1
+	​
+
+],∣+⟩=
+2
