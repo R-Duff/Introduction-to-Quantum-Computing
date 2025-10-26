@@ -61,10 +61,10 @@ On the Bloch sphere: \(|+\rangle, |+i\rangle, |0\rangle\) are on the positive \(
 ### 1.1.2 Two Qubits
 
 $$
-|00\rangle = \begin{bmatrix}1\\0\\0\\0\end{bmatrix}, \quad
-|01\rangle = \begin{bmatrix}0\\1\\0\\0\end{bmatrix}, \quad
-|10\rangle = \begin{bmatrix}0\\0\\1\\0\end{bmatrix}, \quad
-|11\rangle = \begin{bmatrix}0\\0\\0\\1\end{bmatrix}
+|00\rangle = \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \quad
+|01\rangle = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \quad
+|10\rangle = \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}, \quad
+|11\rangle = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
 $$
 
 ---
