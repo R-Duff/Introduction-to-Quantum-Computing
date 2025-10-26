@@ -69,44 +69,35 @@ $$
 
 ---
 
-## 1.2 Basic Gates for One Qubit
+### 1.2 Basic gates for one qubit
 
-The Pauli matrices are the infinitesimal generators of SU(2) (divided by \(i\)):
+#### 1.2.1 Pauli gates
 
-### 1.2.1 Pauli Gates
-
-#### 1.2.1.1 X-gate (bit flip / NOT)
-
+**X-gate (bit flip / NOT):**
 $$
 X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}, \quad
-X|0\rangle = |1\rangle, \quad X|1\rangle = |0\rangle
+X |0\rangle = |1\rangle, \quad X |1\rangle = |0\rangle
 $$
 
-#### 1.2.1.2 Y-gate (phase + bit flip)
-
+**Y-gate (phase + bit flip):**
 $$
 Y = i \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}, \quad
-Y|0\rangle = i|1\rangle, \quad Y|1\rangle = -i|0\rangle
+Y |0\rangle = i|1\rangle, \quad Y |1\rangle = -i|0\rangle
 $$
 
-#### 1.2.1.3 Z-gate (phase flip)
-
+**Z-gate (phase flip):**
 $$
 Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}, \quad
-Z|0\rangle = |0\rangle, \quad Z|1\rangle = -|1\rangle
+Z |0\rangle = |0\rangle, \quad Z |1\rangle = -|1\rangle
+$$
+
+#### 1.2.2 Hadamard gate
+$$
+H = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}, \quad
+H |0\rangle = |+\rangle, \quad H |1\rangle = |-\rangle
 $$
 
 ---
-
-### 1.2.2 Hadamard Gate
-
-$$
-H = \frac{1}{\sqrt{2}}\begin{bmatrix}1 & 1 \\ 1 & -1\end{bmatrix}, \quad
-H|0\rangle = |+\rangle, \quad H|1\rangle = |-\rangle
-$$
-
----
-
 ## 1.3 CNOT (Controlled-NOT)
 
 $$
