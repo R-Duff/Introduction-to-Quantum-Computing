@@ -39,6 +39,7 @@ requirements.txt should include whichever of the requirements.txt corresponds to
 
 ### 1.1.1 Single Qubits
 To begin, the Quantum version of the familiar logic concept of a bit (a state with two options: 'True' and 'False' or '1' and '0' ) can be discussed, needing to take into account that the two possibilities are no longer mutually exclusive:
+
 $$
 |0\rangle = \begin{bmatrix} 1 \\
 0 \end{bmatrix}, \quad
