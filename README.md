@@ -38,7 +38,7 @@ requirements.txt should include whichever of the requirements.txt corresponds to
 ## 1.1 Vector and Matrix Formalism
 
 ### 1.1.1 Single Qubits
-
+To begin, the Quantum version of the familiar logic concept of a bit (a state with two options: 'True' and 'False' or '1' and '0' ) can be discussed, needing to take into account that the two possibilities are no longer mutually exclusive:
 $$
 |0\rangle = \begin{bmatrix} 1 \\
 0 \end{bmatrix}, \quad
@@ -60,12 +60,12 @@ These are the eigenstates of the Pauli matrices:
 - X basis: $$|+\rangle, |-\rangle  $$
 - Y basis: $$|+i\rangle, |-i\rangle$$
 
-On the Bloch sphere: $$\(|+\rangle, |+i\rangle, |0\rangle\)$$ are on the positive x, y, z axes, and $$\(|-\rangle, |-i\rangle, |1\rangle\)$$ are on the negative axes.
+On the Bloch sphere: $$|+\rangle, |+i\rangle,$$ and $$|0\rangle$$ are on the positive x, y and z axes, while $$\(|-\rangle, |-i\rangle$$ and $$|1\rangle\)$$ are on the corresponding negative axes.
 
 ---
 
 ### 1.1.2 Two Qubits
-
+One can take the tensor product between a two dimensional column vectors to get a four dimensional vector to represent a two-qubit state:
 $$
 |00\rangle = \begin{bmatrix} 1 \\
 0 \\
@@ -90,7 +90,7 @@ $$
 ### 1.2 Basic gates for one qubit
 
 #### 1.2.1 Pauli gates
-
+These gates
 **X-gate (bit flip / NOT):**
 
 $$
