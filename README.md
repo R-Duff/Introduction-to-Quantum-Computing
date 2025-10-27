@@ -151,8 +151,8 @@ Flips the target qubit only if **both** control qubits are 1.
 
 ## 2.1 Shor Code
 
-- **X-error**: flips \(|0\rangle \leftrightarrow |1\rangle\)  
-- **Z-error**: flips \(|+\rangle \leftrightarrow |-\rangle\)  
+- **X-error**: flips $$\(|0\rangle \leftrightarrow |1\rangle\)  $$
+- **Z-error**: flips $$\(|+\rangle \leftrightarrow |-\rangle\) $$ 
 - **Y-error**: combination of X and Z errors  
 
 ### 2.1.1 X-error Identification
@@ -167,7 +167,7 @@ Ancilla qubits detect differences, allowing X-errors to be corrected without mea
 
 ### 2.1.2 Z-error Identification
 
-Encode \(|\psi\rangle = \alpha|+\rangle + \beta|-\rangle\) as three qubits:
+Encode $$\(|\psi\rangle = \alpha|+\rangle + \beta|-\rangle\)$$ as three qubits:
 
 $$
 |\psi\rangle = \alpha|+++\rangle + \beta|---\rangle
@@ -179,7 +179,7 @@ Ancilla qubits detect Z-errors similarly.
 
 To protect against X, Y, Z errors:
 
-1. Encode in \(|0\rangle, |1\rangle\) basis (triple qubit).  
-2. Switch each qubit to \(|+\rangle, |-\rangle\) basis and encode again.  
+1. Encode in $$\(|0\rangle, |1\rangle\)$$ basis (triple qubit).  
+2. Switch each qubit to $$\(|+\rangle, |-\rangle\)$$ basis and encode again.  
 
 This creates “double protection” against all single-qubit errors.
