@@ -56,9 +56,9 @@ $$
 
 These are the eigenstates of the Pauli matrices:
 
-- Z basis: $$\(|0\rangle, |1\rangle\)  $$
-- X basis: $$\(|+\rangle, |-\rangle\)  $$
-- Y basis: $$\(|+i\rangle, |-i\rangle\)$$
+- Z basis: $$|0\rangle, |1\rangle  $$
+- X basis: $$|+\rangle, |-\rangle  $$
+- Y basis: $$|+i\rangle, |-i\rangle$$
 
 On the Bloch sphere: $$\(|+\rangle, |+i\rangle, |0\rangle\)$$ are on the positive x, y, z axes, and $$\(|-\rangle, |-i\rangle, |1\rangle\)$$ are on the negative axes.
 
