@@ -66,7 +66,8 @@ On the Bloch sphere: $$|+\rangle, |+i\rangle,$$ and $$|0\rangle$$ are on the pos
 ---
 
 ### 1.1.2 Two Qubits
-One can take the tensor product between a two dimensional column vectors to get a four dimensional vector to represent a two-qubit state:
+One can take the tensor product between a pair of two dimensional column vectors to get a four dimensional vector to represent a two-qubit state:
+
 $$
 |00\rangle = \begin{bmatrix} 1 \\
 0 \\
@@ -91,7 +92,7 @@ $$
 ### 1.2 Basic gates for one qubit
 
 #### 1.2.1 Pauli gates
-These gates
+Having 'translated' the logical bit concept to the quantum realm with these vector representations, logic gates can be written as matrices, starting with the Pauli matrices of familiarity to any student of Quantum Mechanics as the infinitesimal generators of the SU(2) symmetry group, which can work as Quantum logic gates. In the Bloch Sphere symbolism, the X, Y and Z gates correspond to half-rotations of a state about the x, y and z axes respectively.
 **X-gate (bit flip / NOT):**
 
 $$
@@ -120,6 +121,8 @@ Z = \begin{bmatrix} 1 & 0 \\
 Z |0⟩ = |0⟩, \quad Z |1⟩ = -|1⟩$$
 
 #### 1.2.2 Hadamard gate
+This linear combination of the X and Z Pauli gates (equalling $$\frac{1}{\sqrt{2}}(X+Z)$$) can be used to turn the Z eigenstates into the X eigenstates.
+
 $$
 H = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 
 1 & -1 \end{bmatrix}, \quad
