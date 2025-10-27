@@ -1,4 +1,4 @@
-# Quantum Bit-Flip Error Correction Demo
+# An Introduction to Quantum Error Correction
 
 This is an evolving project demonstrating quantum error correction techniques using Qiskit. The intention in making this project is to continue adding to it, but for now it contains bit flip checking and Shor Code demonstration. The project simulates the encoding, random bit-flip error, detection, and correction of a single qubit using the 3-qubit bit-flip code, and then also the Shor Code approach.
 
@@ -40,12 +40,18 @@ requirements.txt should include whichever of the requirements.txt corresponds to
 ### 1.1.1 Single Qubits
 
 $$
-|0\rangle = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \quad
-|1\rangle = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \quad
-|+\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 1 \end{bmatrix}, \quad
-|-\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ -1 \end{bmatrix}, \quad
-|+i\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ i \end{bmatrix}, \quad
-|-i\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}
+|0\rangle = \begin{bmatrix} 1 \\
+0 \end{bmatrix}, \quad
+|1\rangle = \begin{bmatrix} 0 \\
+1 \end{bmatrix}, \quad
+|+\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\
+1 \end{bmatrix}, \quad
+|-\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\
+-1 \end{bmatrix}, \quad
+|+i\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\
+i \end{bmatrix}, \quad
+|-i\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\
+-i \end{bmatrix}
 $$
 
 These are the eigenstates of the Pauli matrices:
@@ -61,10 +67,22 @@ On the Bloch sphere: \(|+\rangle, |+i\rangle, |0\rangle\) are on the positive \(
 ### 1.1.2 Two Qubits
 
 $$
-|00\rangle = \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \quad
-|01\rangle = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \quad
-|10\rangle = \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}, \quad
-|11\rangle = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+|00\rangle = \begin{bmatrix} 1 \\
+0 \\
+0 \\
+0 \end{bmatrix}, \quad
+|01\rangle = \begin{bmatrix} 0 \\
+1 \\
+0 \\
+0 \end{bmatrix}, \quad
+|10\rangle = \begin{bmatrix} 0 \\
+0 \\
+1 \\
+0 \end{bmatrix}, \quad
+|11\rangle = \begin{bmatrix} 0 \\
+0 \\
+0 \\
+1 \end{bmatrix}
 $$
 
 ---
@@ -74,27 +92,37 @@ $$
 #### 1.2.1 Pauli gates
 
 **X-gate (bit flip / NOT):**
+
 $$
-X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}, \quad
-X |0\rangle = |1\rangle, \quad X |1\rangle = |0\rangle
-$$
+X = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix},\quad X|0⟩ = |1⟩,\quad
+X|1⟩ = |0⟩$$
+
+
 
 **Y-gate (phase + bit flip):**
+
 $$
-Y = i \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}, \quad
-Y |0\rangle = i|1\rangle, \quad Y |1\rangle = -i|0\rangle
-$$
+Y = i \begin{bmatrix}
+0 & -1 \\
+1 & 0
+\end{bmatrix},\quad Y |0⟩ = i|1⟩, \quad Y |1⟩ = -i|0⟩$$
+
 
 **Z-gate (phase flip):**
+
 $$
-Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}, \quad
-Z |0\rangle = |0\rangle, \quad Z |1\rangle = -|1\rangle
-$$
+Z = \begin{bmatrix} 1 & 0 \\
+0 & -1 \end{bmatrix}, \quad
+Z |0⟩ = |0⟩, \quad Z |1⟩ = -|1⟩$$
 
 #### 1.2.2 Hadamard gate
 $$
-H = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}, \quad
-H |0\rangle = |+\rangle, \quad H |1\rangle = |-\rangle
+H = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 
+1 & -1 \end{bmatrix}, \quad
+H |0⟩ = |+⟩, \quad H |1⟩ = |-⟩
 $$
 
 ---
