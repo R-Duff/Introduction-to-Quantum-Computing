@@ -93,6 +93,7 @@ $$
 
 #### 1.2.1 Pauli gates
 Having 'translated' the logical bit concept to the quantum realm with these vector representations, logic gates can be written as matrices, starting with the Pauli matrices of familiarity to any student of Quantum Mechanics as the infinitesimal generators of the SU(2) symmetry group, which can work as Quantum logic gates. In the Bloch Sphere symbolism, the X, Y and Z gates correspond to half-rotations of a state about the x, y and z axes respectively.
+
 **X-gate (bit flip / NOT):**
 
 $$
