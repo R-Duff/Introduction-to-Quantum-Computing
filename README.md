@@ -1,4 +1,4 @@
-# An Introduction to Quantum Error Correction
+# An Introduction to Quantum Computing
 
 This is an evolving project demonstrating quantum error correction techniques using Qiskit. The intention in making this project is to continue adding to it, but for now it contains bit flip checking and Shor Code demonstration. The project simulates the encoding, random bit-flip error, detection, and correction of a single qubit using the 3-qubit bit-flip code, and then also the Shor Code approach.
 
