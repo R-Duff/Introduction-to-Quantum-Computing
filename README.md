@@ -188,3 +188,44 @@ To protect against X, Y, Z errors:
 2. Switch each qubit to $$\(|+\rangle, |-\rangle\)$$ basis and encode again.  
 
 This creates “double protection” against all single-qubit errors.
+
+# 3 Quantum Classical Hybrid Algorithms
+
+### Quantum Approximation Optimisation Algorithm
+
+QAOA works on optimisation problems (eg: scheduling, postman path challenges, etc.)
+
+It's a hybrid Quantum-Classical system that approximates.
+
+Two Hamiltonians are defined, the cost and mixer ones, which encode the problem and explore the other solutions respectively. An initial state is selected, which can be acted on by unitary operators. The unitary operators chosen here are a succession of alternating operators, exponentiating the choice and mixer Hamiltonians into evolution operators with respect to some evolution parameter, similar to how Hamiltonians are often exponentiated to give time evolution operators. 
+
+$$
+e^{-i\alpha H_{\textrm{choice}}}, \quad 
+e^{-i\beta H_{\textrm{mixer}}}, \quad 
+e^{-i\gamma H_{\textrm{choice}}}, \quad 
+e^{-i\delta H_{\textrm{mixer}}}, \ldots
+$$
+
+This 'splitting up' of an evolution operator is similar in many ways to Trotterisation:
+
+$$
+\lim_{n\rightarrow \infty}\left(e^{-\frac{iAt}{n}}e^{-\frac{iBt}{n}}\right)^n = e^{-i(A+B)t}
+$$
+
+Therefore, for large $n$:
+
+$$
+e^{-i(A+B)t}\approx \left(e^{-\frac{iAt}{n}}e^{-\frac{iBt}{n}}\right)^n
+$$
+
+The QAOA optimisation approach is that if one defines evolution parameters $\beta$ and $\gamma$ and initial quantum state $\ket{\psi}$ then one can use state
+
+$$
+\ket{\psi(\alpha,\beta)}=e^{-i\gamma_1 H_{c}} e^{-i\beta_1 H_m}e^{-i\gamma_2 H_c}e^{-i\beta_2 H_m}\dots \ket{\psi}
+$$
+
+to find the values of $\beta$ and $\gamma$ that maximise or minimise (depending on the optimisation problem)
+
+$$
+E = \bra{\psi(\gamma,\beta)}H_{\textrm{choice}}\ket{\psi(\gamma,\beta)}
+$$
