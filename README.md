@@ -1,6 +1,6 @@
 # An Introduction to Quantum Computing
 
-This is an evolving project demonstrating quantum error correction techniques using Qiskit. The intention in making this project is to continue adding to it, but for now it contains bit flip checking and Shor Code demonstration. The project simulates the encoding, random bit-flip error, detection, and correction of a single qubit using the 3-qubit bit-flip code, and then also the Shor Code approach.
+This is an evolving project demonstrating quantum error correction techniques and Quantum-Classical Algorithms using Qiskit. The intention in making this project is to continue adding to it, but for now it two main sections. Part 1, including notebooks and corresponding requirements numbered 1a, 1b and 1c, introduces Quantum Error Correction techniques, while part 2 moves onto Quantum-Classical Algorithms, beginning with Quantum Approximation Optimisation Algorithms. Part 1 simulates the encoding, random bit-flip error, detection, and correction of a single qubit using the 3-qubit bit-flip code, and then also the Shor Code approach, before finally moving onto the more detailed Surface Code approach.
 
 ## What It Shows
 
@@ -10,7 +10,8 @@ This is an evolving project demonstrating quantum error correction techniques us
 - Syndrome measurement using ancilla qubits
 - Classical correction based on measurement
 - Decoding and final measurement in the X-basis to verify state recovery
-- Repeating this with the more advanced Shor's Code.
+- Repeating this with the more advanced Shor's Code and Surface Code.
+- Introducing Quantum-Classical Algorithms such as QAOA.
 
 ## Notable aspects of this project
 
@@ -35,9 +36,9 @@ requirements.txt should include whichever of the requirements.txt corresponds to
 
 # Quantum Logic Gates
 
-## 1.1 Vector and Matrix Formalism
+## 0.1 Vector and Matrix Formalism
 
-### 1.1.1 Single Qubits
+### 0.1.1 Single Qubits
 To begin, the Quantum version of the familiar logic concept of a bit (a state with two options: 'True' and 'False' or '1' and '0' ) can be discussed, needing to take into account that the two possibilities are no longer mutually exclusive:
 
 $$
@@ -65,7 +66,7 @@ On the Bloch sphere: $$|+\rangle, |+i\rangle,$$ and $$|0\rangle$$ are on the pos
 
 ---
 
-### 1.1.2 Two Qubits
+### 0.1.2 Two Qubits
 One can take the tensor product between a pair of two dimensional column vectors to get a four dimensional vector to represent a two-qubit state:
 
 $$
@@ -89,9 +90,9 @@ $$
 
 ---
 
-### 1.2 Basic gates for one qubit
+### 0.2 Basic gates for one qubit
 
-#### 1.2.1 Pauli gates
+#### 0.2.1 Pauli gates
 Having 'translated' the logical bit concept to the quantum realm with these vector representations, logic gates can be written as matrices, starting with the Pauli matrices of familiarity to any student of Quantum Mechanics as the infinitesimal generators of the SU(2) symmetry group, which can work as Quantum logic gates. In the Bloch Sphere symbolism, the X, Y and Z gates correspond to half-rotations of a state about the x, y and z axes respectively.
 
 **X-gate (bit flip / NOT):**
@@ -121,7 +122,7 @@ Z = \begin{bmatrix} 1 & 0 \\
 0 & -1 \end{bmatrix}, \quad
 Z |0⟩ = |0⟩, \quad Z |1⟩ = -|1⟩$$
 
-#### 1.2.2 Hadamard gate
+#### 0.2.2 Hadamard gate
 This linear combination of the X and Z Pauli gates (equalling $$\frac{1}{\sqrt{2}}(X+Z)$$) can be used to turn the Z eigenstates into the X eigenstates.
 
 $$
@@ -131,7 +132,7 @@ H |0⟩ = |+⟩, \quad H |1⟩ = |-⟩
 $$
 
 ---
-## 1.3 CNOT (Controlled-NOT)
+## 0.3 CNOT (Controlled-NOT)
 
 $$
 \text{CNOT} = \begin{bmatrix}
@@ -146,21 +147,21 @@ If the control qubit (first qubit) is 1, the gate flips the target qubit (second
 
 ---
 
-## 1.4 Toffoli / CCNOT (Controlled-Controlled NOT)
+## 0.4 Toffoli / CCNOT (Controlled-Controlled NOT)
 
 Flips the target qubit only if **both** control qubits are 1.
 
 ---
 
-# 2 Quantum Error Correction
+# 1 Quantum Error Correction
 
-## 2.1 Shor Code
+## 1.1 Shor Code
 
 - **X-error**: flips $$\(|0\rangle \leftrightarrow |1\rangle\)  $$
 - **Z-error**: flips $$\(|+\rangle \leftrightarrow |-\rangle\) $$ 
 - **Y-error**: combination of X and Z errors  
 
-### 2.1.1 X-error Identification
+### 1.1.1 X-error Identification
 
 Encode \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\) as three qubits:
 
@@ -170,7 +171,7 @@ $$
 
 Ancilla qubits detect differences, allowing X-errors to be corrected without measurement.
 
-### 2.1.2 Z-error Identification
+### 1.1.2 Z-error Identification
 
 Encode $$\(|\psi\rangle = \alpha|+\rangle + \beta|-\rangle\)$$ as three qubits:
 
@@ -180,7 +181,7 @@ $$
 
 Ancilla qubits detect Z-errors similarly.
 
-### 2.1.3 Combined Protection
+### 1.1.3 Combined Protection
 
 To protect against X, Y, Z errors:
 
@@ -189,7 +190,7 @@ To protect against X, Y, Z errors:
 
 This creates “double protection” against all single-qubit errors.
 
-# 3 Quantum Classical Hybrid Algorithms
+# 2 Quantum Classical Hybrid Algorithms
 
 ### Quantum Approximation Optimisation Algorithm
 
